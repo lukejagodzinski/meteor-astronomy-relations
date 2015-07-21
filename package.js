@@ -1,6 +1,6 @@
 Package.describe({
   summary: 'Relations for Meteor Astronomy',
-  version: '0.1.1',
+  version: '0.1.2',
   name: 'jagi:astronomy-relations',
   git: 'https://github.com/jagi/meteor-astronomy-relations.git'
 });
@@ -10,6 +10,7 @@ Package.onUse(function(api) {
 
   api.use('jagi:astronomy@0.10.5');
   api.use('underscore');
+  api.use('tracker');
 
   api.imply('jagi:astronomy');
 
