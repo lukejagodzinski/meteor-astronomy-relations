@@ -18,6 +18,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'lib/module/init_module.js',
     'lib/module/init_schema.js',
+    'lib/module/init_definition.js',
     'lib/module/init_class.js',
     'lib/module/init_instance.js'
   ], ['client', 'server']);
