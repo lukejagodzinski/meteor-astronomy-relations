@@ -8,7 +8,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
-  api.use('jagi:astronomy@0.10.5');
+  api.use('jagi:astronomy@1.2.0');
   api.use('underscore');
   api.use('tracker');
 
@@ -18,6 +18,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'lib/module/init_module.js',
     'lib/module/init_schema.js',
+    'lib/module/init_definition.js',
     'lib/module/init_class.js',
     'lib/module/init_instance.js'
   ], ['client', 'server']);
