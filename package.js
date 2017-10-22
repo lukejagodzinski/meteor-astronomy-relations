@@ -6,15 +6,17 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.1.0.2');
+  api.versionsFrom('1.3');
 
-  api.use('jagi:astronomy@1.2.6');
-  api.use('underscore');
+  api.use([
+    'jagi:astronomy@2.5.2',
+    'ecmascript'
+  ], ['client', 'server']);
 
   api.imply('jagi:astronomy');
 
   // Module.
   api.addFiles([
-    'lib/module/init_definition.js'
+    'lib/module.js'
   ], ['client', 'server']);
 });
