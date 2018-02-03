@@ -13,10 +13,27 @@ Package.onUse(function(api) {
     'ecmascript'
   ], ['client', 'server']);
 
-  api.imply('jagi:astronomy');
-
   // Module.
+  api.mainModule(
+    'lib/module.js',
+    ['client', 'server']
+  );
+});
+
+
+Package.onTest(function(api) {
+  api.use([
+    'tinytest',
+    'ecmascript',
+    'mongo',
+    'jagi:astronomy@2.5.2',
+    'jagi:astronomy-relations@2.0.0'
+  ]);
+  
   api.addFiles([
-    'lib/module.js'
+    'test/methods.js',
+    'test/query_one.js',
+    'test/query_many.js'
   ], ['client', 'server']);
+  
 });
