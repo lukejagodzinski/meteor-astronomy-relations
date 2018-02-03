@@ -1,6 +1,6 @@
 Package.describe({
   summary: 'Relations for Meteor Astronomy',
-  version: '1.0.0',
+  version: '2.0.0',
   name: 'jagi:astronomy-relations',
   git: 'https://github.com/jagi/meteor-astronomy-relations.git'
 });
