@@ -1,20 +1,39 @@
 Package.describe({
   summary: 'Relations for Meteor Astronomy',
-  version: '1.0.0',
+  version: '2.0.0',
   name: 'jagi:astronomy-relations',
   git: 'https://github.com/jagi/meteor-astronomy-relations.git'
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.1.0.2');
+  api.versionsFrom('1.3');
 
-  api.use('jagi:astronomy@1.2.6');
-  api.use('underscore');
-
-  api.imply('jagi:astronomy');
+  api.use([
+    'jagi:astronomy@2.5.2',
+    'ecmascript'
+  ], ['client', 'server']);
 
   // Module.
+  api.mainModule(
+    'lib/module.js',
+    ['client', 'server']
+  );
+});
+
+
+Package.onTest(function(api) {
+  api.use([
+    'tinytest',
+    'ecmascript',
+    'mongo',
+    'jagi:astronomy@2.5.2',
+    'jagi:astronomy-relations@2.0.0'
+  ]);
+  
   api.addFiles([
-    'lib/module/init_definition.js'
+    'test/methods.js',
+    'test/query_one.js',
+    'test/query_many.js'
   ], ['client', 'server']);
+  
 });
