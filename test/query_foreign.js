@@ -2,21 +2,23 @@ import { Mongo } from 'meteor/mongo';
 import { Class } from 'meteor/jagi:astronomy';
 import '../lib/module.js';
 
-Tinytest.add("Relations - Query - One", function(test) {
-  
+Tinytest.add("Relations - Query - Foreign", function(test) {
+
   const Reference = Class.create({
     name: 'Reference',
     collection: new Mongo.Collection(null),
     secured: false,
+  });
+  
+  const Query = Class.create({
+    name: 'Query',
+    collection: new Mongo.Collection(null),
     fields: {
       ref: {
         type: String,
         default: ""
       }
-    }
-  });
-  
-  Reference.extend({
+    },
     relations: {
       getRef: {
         type: 'one',
@@ -27,10 +29,9 @@ Tinytest.add("Relations - Query - One", function(test) {
     }
   });
   
-  var reference1 = new Reference();
-  var reference2 = new Reference();
-  reference1.save();
-  reference2.ref = reference1._id;
-  reference2.save();
-  test.equal(reference2.getRef(), reference1);
+  var reference = new Reference();
+  var query = new Query();
+  reference.save();
+  query.ref = reference._id;
+  test.equal(query.getRef(), reference);
 });

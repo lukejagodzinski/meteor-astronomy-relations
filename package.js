@@ -23,7 +23,7 @@ Package.onTest(function(api) {
   ]);
 
   api.addFiles(
-    ["test/methods.js", "test/query_one.js", "test/query_many.js"],
+    ["test/methods.js", "test/query_one.js", "test/query_many.js", "test/query_foreign.js"],
     ["client", "server"]
   );
 });

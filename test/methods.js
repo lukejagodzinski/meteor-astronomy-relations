@@ -4,18 +4,21 @@ import '../lib/module.js';
 
 Tinytest.add("Relations - Methods", function(test) {
   
-  var RelationClass = Class.create({
+  const RelationClass = Class.create({
     name: 'Relation',
     fields: {
       ref: {
         type: String,
         default: ""
       }
-    },
+    }
+  });
+  
+  RelationClass.extend({
     relations: {
       getRef: {
         type: 'one',
-        class: 'Relation',
+        class: RelationClass,
         foreign: '_id',
         local: 'ref'
       }

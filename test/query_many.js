@@ -4,7 +4,7 @@ import '../lib/module.js';
 
 Tinytest.add( "Relations - Query - Many", function(test) {
   
-  var Reference = Class.create({
+  const Reference = Class.create({
     name: 'Reference',
     collection: new Mongo.Collection(null),
     secured: false,
@@ -13,11 +13,14 @@ Tinytest.add( "Relations - Query - Many", function(test) {
         type: [String],
         default: ()=>{ return []; }
       }
-    },
+    }
+  });
+  
+  Reference.extend({
     relations: {
       getRef: {
         type: 'many',
-        class: 'Reference',
+        class: Reference,
         foreign: '_id',
         local: 'refs'
       }
